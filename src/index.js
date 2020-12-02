@@ -4,16 +4,17 @@ import reportWebVitals from './reportWebVitals';
 
 const App = (props) => {
 const [count, setCount] = useState(2)
+const [text, setText] = useState('')
 
   return (
     <div>
       <p>
-        The current count is {count}
+        The current {text} is {count}
       </p>
-      {/* <button onClick={() => setCount(count - 1)}>-</button> */}
       <button onClick={() => setCount(count - 1)}>-</button>
       <button onClick={() => setCount(props.count)}>Reset</button>
       <button onClick={() => setCount(count + 1)}>+</button>
+      <input onChange={(event) => setText(event.target.value)}></input>
     </div>
   )
 }
