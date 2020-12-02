@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+const App = (props) => {
+const [count, setCount] = useState(2)
+
+  return (
+    <div>
+      <p>
+        The current count is {count}
+      </p>
+      {/* <button onClick={() => setCount(count - 1)}>-</button> */}
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(props.count)}>Reset</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
+    </div>
+  )
+}
+
+App.defaultProps = {
+  count: 3
+}
 
 ReactDOM.render(
   <React.StrictMode>
